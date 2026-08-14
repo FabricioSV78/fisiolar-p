@@ -1,0 +1,9 @@
+# FISIOLAR
+
+FISIOLAR es un centro de fisioterapia y rehabilitación con tres sedes en Trujillo, Perú.
+
+Esta web permite explorar áreas de atención y contactar por WhatsApp a las sedes América, San Andrés y La Noria. El contenido es informativo y no constituye diagnóstico ni recomendación médica individual.
+
+- [Página principal](/)
+- [Tratamientos](/#tratamientos)
+- [Sedes](/#sedes)
