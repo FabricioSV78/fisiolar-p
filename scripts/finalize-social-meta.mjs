@@ -28,9 +28,13 @@ if (!siteOrigin) {
 }
 
 const html = await readFile(outputPath, 'utf8')
-const finalizedHtml = html.replaceAll('__SITE_URL__', siteOrigin)
+const finalizeHtml = (pageUrl) => html
+  .replaceAll('__SITE_URL__', siteOrigin)
+  .replaceAll('__PAGE_URL__', pageUrl)
 
-if (finalizedHtml.includes('__SITE_URL__')) {
+const finalizedHtml = finalizeHtml(`${siteOrigin}/`)
+
+if (finalizedHtml.includes('__SITE_URL__') || finalizedHtml.includes('__PAGE_URL__')) {
   throw new Error('Quedaron marcadores de URL sin reemplazar en dist/index.html.')
 }
 

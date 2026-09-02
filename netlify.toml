@@ -4,4 +4,3 @@
 
 [build.environment]
   NODE_VERSION = "22.16.0"
-  SITE_URL = "https://fisiolar-propuesta2.netlify.app"
