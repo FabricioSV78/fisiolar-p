@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "type": "link",
+  "provider_name": "FISIOLAR",
+  "provider_url": "__SITE_URL__/",
+  "title": "FISIOLAR | Recupera tu movimiento",
+  "author_name": "FISIOLAR",
+  "thumbnail_url": "__SITE_URL__/images/fisiolar-link-card.png",
+  "thumbnail_width": 600,
+  "thumbnail_height": 600
+}

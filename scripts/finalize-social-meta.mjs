@@ -2,6 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 
 const outputPath = fileURLToPath(new URL('../dist/index.html', import.meta.url))
+const oembedOutputPath = fileURLToPath(new URL('../dist/oembed.json', import.meta.url))
 const candidates = [
   process.env.SITE_URL,
   process.env.URL,
@@ -28,6 +29,7 @@ if (!siteOrigin) {
 }
 
 const html = await readFile(outputPath, 'utf8')
+const oembed = await readFile(oembedOutputPath, 'utf8')
 const finalizeHtml = (pageUrl) => html
   .replaceAll('__SITE_URL__', siteOrigin)
   .replaceAll('__PAGE_URL__', pageUrl)
@@ -39,4 +41,5 @@ if (finalizedHtml.includes('__SITE_URL__') || finalizedHtml.includes('__PAGE_URL
 }
 
 await writeFile(outputPath, finalizedHtml, 'utf8')
+await writeFile(oembedOutputPath, oembed.replaceAll('__SITE_URL__', siteOrigin), 'utf8')
 console.log(`Metadatos sociales configurados para ${siteOrigin}`)
