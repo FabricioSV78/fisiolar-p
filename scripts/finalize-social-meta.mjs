@@ -1,8 +1,10 @@
-import { readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 
 const outputPath = fileURLToPath(new URL('../dist/index.html', import.meta.url))
 const oembedOutputPath = fileURLToPath(new URL('../dist/oembed.json', import.meta.url))
+const insertionDirectory = fileURLToPath(new URL('../dist/insercion', import.meta.url))
+const insertionOutputPath = fileURLToPath(new URL('../dist/insercion/index.html', import.meta.url))
 const candidates = [
   process.env.SITE_URL,
   process.env.URL,
@@ -35,11 +37,14 @@ const finalizeHtml = (pageUrl) => html
   .replaceAll('__PAGE_URL__', pageUrl)
 
 const finalizedHtml = finalizeHtml(`${siteOrigin}/`)
+const insertionHtml = finalizeHtml(`${siteOrigin}/insercion`)
 
 if (finalizedHtml.includes('__SITE_URL__') || finalizedHtml.includes('__PAGE_URL__')) {
   throw new Error('Quedaron marcadores de URL sin reemplazar en dist/index.html.')
 }
 
 await writeFile(outputPath, finalizedHtml, 'utf8')
+await mkdir(insertionDirectory, { recursive: true })
+await writeFile(insertionOutputPath, insertionHtml, 'utf8')
 await writeFile(oembedOutputPath, oembed.replaceAll('__SITE_URL__', siteOrigin), 'utf8')
 console.log(`Metadatos sociales configurados para ${siteOrigin}`)
