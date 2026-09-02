@@ -5,7 +5,7 @@
   "provider_url": "__SITE_URL__/",
   "title": "FISIOLAR | Recupera tu movimiento",
   "author_name": "FISIOLAR",
-  "thumbnail_url": "__SITE_URL__/images/fisiolar-link-card.png",
+  "thumbnail_url": "__SITE_URL__/images/fisiolar-link-card-square.png",
   "thumbnail_width": 600,
   "thumbnail_height": 600
 }

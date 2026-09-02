@@ -14,7 +14,7 @@
     </filter>
   </defs>
 
-  <rect width="600" height="600" rx="44" fill="url(#background)" />
+  <rect width="600" height="600" fill="url(#background)" />
   <circle cx="560" cy="62" r="155" fill="none" stroke="#57c5e6" stroke-opacity="0.1" stroke-width="2" />
   <circle cx="44" cy="566" r="190" fill="none" stroke="#57c5e6" stroke-opacity="0.08" stroke-width="2" />
   <path d="M0 500C105 430 190 553 300 489C412 424 480 454 600 397V600H0Z" fill="#57c5e6" fill-opacity="0.05" />
